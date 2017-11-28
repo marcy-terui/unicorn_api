@@ -59,6 +59,9 @@ class Unicorn(Resource):
         #Return List of Unicorns - You may find some cool unicorns to check out
         #Unsecured API - this call works even if we don't have current code (and thus a valid secret hash)
         req = requests.get(BACKEND_API+'/unicorn')
+        print 'rquest:'.format(BACKEND_API+'/unicorn')
+        print 'code:'.format(req.status_code)
+        print 'body:'.format(req.text)
         return json.loads(req.text), req.status_code
 
 class Unicorns(Resource):
